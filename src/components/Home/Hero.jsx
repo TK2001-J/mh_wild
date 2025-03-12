@@ -68,7 +68,7 @@ const Hero = () => {
 
     return (
         <div className="relative min-h-screen flex items-center bg-cover bg-center overflow-hidden"
-             style={{backgroundImage: "url('/images/mh-wilderness-bg.jpg')"}}>
+             style={{backgroundImage: "url('https://cdn.monsterhunterworld.com/sblobr/mhwi/images/game_kv.jpg')"}}>
             {/* พื้นหลังโทนสีน้ำตาลมินิมอล */}
             <div className="absolute inset-0 bg-gradient-to-br from-stone-900/90 via-amber-900/80 to-stone-800/90 dark:from-stone-950/90 dark:via-amber-950/80 dark:to-stone-900/90">
                 <div className="absolute inset-0 backdrop-blur-md" />
@@ -78,9 +78,9 @@ const Hero = () => {
                 <div className="absolute bottom-20 right-20 w-96 h-96 bg-stone-600/10 rounded-full blur-3xl" />
                 <div className="absolute bottom-40 left-40 w-64 h-64 bg-amber-500/5 rounded-full blur-3xl" />
                 
-                {/* เอฟเฟกต์เท็กซ์เจอร์แบบน้อยๆ */}
-                <div className="absolute inset-0 opacity-10" 
-                     style={{backgroundImage: "url('/images/subtle-texture.png')", backgroundRepeat: 'repeat'}} />
+                {/* ใช้ gradient แทนรูปเท็กซ์เจอร์เพื่อแก้ปัญหาไฟล์ไม่มี */}
+                <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_800px_at_100%_200px,rgba(217,119,6,0.1),transparent)]" />
+                <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_600px_at_0%_80%,rgba(217,119,6,0.1),transparent)]" />
             </div>
 
             {/* เส้นกริดแนวนอนแบบบางเบา */}
@@ -111,7 +111,7 @@ const Hero = () => {
                                 transition={{ delay: 0.2, duration: 0.8 }}
                             >
                                 <h1 className="text-4xl lg:text-6xl font-bold text-amber-50 mb-4 [text-wrap:balance] tracking-tight">
-                                    ยินดีต้อนรับ สู่{' '}
+                                    ยินดีต้อนรับครับท่าน CEO วราวุฒิ สู่{' '}
                                     <span className="inline-block">
                                         <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-500 dark:from-amber-200 dark:via-yellow-300 dark:to-amber-400">
                                             Monster Hunter Guide - TH
@@ -151,7 +151,7 @@ const Hero = () => {
                                 >
                                     <Link
                                         to="/docs"
-                                        className="relative group px-8 py-3 bg-gradient-to-r from-amber-700 to-amber-600 text-amber-50 rounded-lg font-medium transition-all duration-300 border border-amber-600/30"
+                                        className="relative group px-8 py-3 bg-gradient-to-r from-amber-800 to-amber-700 text-amber-50 rounded-lg font-medium transition-all duration-300 border border-amber-600/30"
                                     >
                                         <span className="absolute inset-0 rounded-lg bg-gradient-to-r from-amber-600 to-amber-700 blur opacity-0 group-hover:opacity-30 transition-opacity" />
                                         <span className="relative">
@@ -164,7 +164,7 @@ const Hero = () => {
                                     whileTap={{ scale: 0.95 }}
                                 >
                                     <Link
-                                        to="/docs/สกิล"
+                                        to="/docs/CSS/สกิล"
                                         className="relative group px-8 py-3 bg-transparent text-amber-200 border border-amber-700/30 rounded-lg font-medium hover:bg-amber-800/10 transition-all duration-300"
                                     >
                                         <span className="relative">
@@ -241,12 +241,15 @@ const Hero = () => {
                             animate={{ opacity: 0.6, rotate: 12 }}
                             transition={{ delay: 1.2, duration: 0.8 }}
                         >
-                            <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="rgba(217,119,6,0.5)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                                <path d="M12 2C14.5013 4.73835 15.9228 8.29203 16 12C15.9228 15.708 14.5013 19.2616 12 22C9.49872 19.2616 8.07725 15.708 8 12C8.07725 8.29203 9.49872 4.73835 12 2Z" stroke="rgba(217,119,6,0.5)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                                <path d="M2 12H22" stroke="rgba(217,119,6,0.5)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                            </svg>
-                            <div className="absolute inset-0" style={{ filter: "drop-shadow(0 0 5px rgba(217,119,6,0.3))" }}></div>
+                            {/* ไม่ใช้ SVG แบบเดิม แต่ใช้รูปจาก URL */}
+                            <div className="w-full h-full relative">
+                                <img 
+                                    src="https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/mhw-guild-crest-wiki-guide.png" 
+                                    alt="Monster Hunter Icon" 
+                                    className="w-full h-full object-contain opacity-70"
+                                />
+                                <div className="absolute inset-0" style={{ filter: "drop-shadow(0 0 5px rgba(217,119,6,0.3))" }}></div>
+                            </div>
                         </motion.div>
                     </div>
                 </div>
