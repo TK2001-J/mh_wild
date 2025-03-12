@@ -111,7 +111,7 @@ const Hero = () => {
                                 transition={{ delay: 0.2, duration: 0.8 }}
                             >
                                 <h1 className="text-4xl lg:text-6xl font-bold text-amber-50 mb-4 [text-wrap:balance] tracking-tight">
-                                    ยินดีต้อนรับครับท่าน CEO วราวุฒิ สู่{' '}
+                                    ยินดีต้อนรับครับท่าน CEO วราวุฒิ{' '}
                                     <span className="inline-block">
                                         <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-500 dark:from-amber-200 dark:via-yellow-300 dark:to-amber-400">
                                             Monster Hunter Guide - TH
