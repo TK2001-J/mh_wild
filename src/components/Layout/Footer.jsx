@@ -39,11 +39,10 @@ const Footer = () => {
                             className="text-center md:text-left"
                         >
                             <h2 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 mb-2">
-                                Docs Web
+                                 Special Thanks <FiHeart />
                             </h2>
                             <p className="text-gray-600 dark:text-gray-400 max-w-md">
-                                เว็บไซต์ Docs Web
-                                เอกสารที่อยากจะแนะนำให้กับคุณเลย!!!!
+                                Docs Web by NekoSakuraLucia 
                             </p>
                         </motion.div>
 
@@ -51,14 +50,14 @@ const Footer = () => {
                             {['GitHub', 'Discord', 'Twitter'].map((item, i) => (
                                 <motion.a
                                     key={i}
-                                    href="#"
+                                    href="https://github.com/TK2001-J"
                                     whileHover={{ scale: 1.05, y: -2 }}
                                     whileTap={{ scale: 0.95 }}
                                     className={`px-6 py-2 rounded-full border border-gray-200/50 dark:border-gray-800/50 
-                  hover:border-blue-500/50 dark:hover:border-blue-500/50 
-                  hover:bg-blue-500/5 dark:hover:bg-blue-500/5
-                  text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400
-                  transition-all duration-300 flex items-center gap-2 backdrop-blur-sm glowing-corner-button`}
+                                                 hover:border-blue-500/50 dark:hover:border-blue-500/50 
+                                                   hover:bg-blue-500/5 dark:hover:bg-blue-500/5
+                                                    text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400
+                                                       transition-all duration-300 flex items-center gap-2 backdrop-blur-sm glowing-corner-button`}
                                     onMouseMove={(e) =>
                                         handleMouseMove(e, e.currentTarget)
                                     }
@@ -80,16 +79,16 @@ const Footer = () => {
                         className="mt-8 pt-6 border-t border-gray-200/50 dark:border-gray-800/50 text-center"
                     >
                         <p className="text-gray-600 dark:text-gray-400">
-                            © {currentYear} Your Docs. สร้างโดย{' '}
-                            <FiHeart className="inline-block text-red-500 hover:scale-125 transition-transform" />
+                            © {currentYear} สร้างโดย{' '}
+                           
                             <NavLink
-                                to="https://github.com/NekoSakuraLucia"
+                                to="https://github.com/TK2001-J"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-blue-600 dark:text-blue-400 hover:underline"
                             >
                                 {' '}
-                                NekoSakuraLucia
+                                TK2001-J
                             </NavLink>
                         </p>
                     </motion.div>

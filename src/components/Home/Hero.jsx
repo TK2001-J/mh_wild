@@ -7,7 +7,7 @@ import { Link } from 'react-router';
 
 const TypedCodeBlock = () => {
     return (
-        <div className="text-white">
+        <div className="text-amber-100">
             <CodeBlock
                 code={
                     <Typewriter
@@ -18,17 +18,15 @@ const TypedCodeBlock = () => {
                         }}
                         onInit={(typewriter) => {
                             typewriter
-                                .typeString('const messages = [\n')
-                                .typeString(
-                                    '  "คำแนะนำที่ครอบคลุมของคุณในการสร้างซอฟต์แวร์ที่น่าทึ่ง เรียบง่าย และจัดทำเป็นเอกสารอย่างสวยงาม",\n'
-                                )
+                                .typeString('const hunterGuide = {\n')
+                                .typeString('  weapons: ["Great Sword", "Dual Blades", "Bow", "Heavy Bowgun"],\n')
                                 .pauseFor(500)
-                                .typeString(
-                                    '  "เว็บไซต์ Docs Web เอกสารที่อยากจะแนะนำให้กับคุณเลย!!!!",\n'
-                                )
+                                .typeString('  monsters: ["Zinogre", "Rathalos", "Nargacuga", "Magnamalo"],\n')
                                 .pauseFor(500)
-                                .typeString('];\n\n')
-                                .typeString('console.log(messages);')
+                                .typeString('  skills: ["Attack Boost", "Critical Eye", "Weakness Exploit"],\n')
+                                .pauseFor(500)
+                                .typeString('};\n\n')
+                                .typeString('console.log("Happy Hunting!");')
                                 .start();
                         }}
                     />
@@ -40,7 +38,7 @@ const TypedCodeBlock = () => {
 };
 
 const Hero = () => {
-    // เพิ่ม mouse tracking สำหรับ 3D effect
+    // Mouse tracking สำหรับ 3D effect
     const containerRef = useRef(null);
     const mouseX = useMotionValue(0);
     const mouseY = useMotionValue(0);
@@ -69,16 +67,29 @@ const Hero = () => {
     }, [mouseX, mouseY]);
 
     return (
-        <div className="relative min-h-screen flex items-center">
-            {/* พื้นหลังที่มีการไล่ระดับสีและเบลอ */}
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-900 dark:to-blue-900">
-                <div className="absolute inset-0 bg-white/30 dark:bg-black/30 backdrop-blur-[100px]" />
-                <div className="absolute top-20 left-20 w-72 h-72 bg-blue-400/30 dark:bg-blue-500/20 rounded-full blur-3xl" />
-                <div className="absolute bottom-20 right-20 w-96 h-96 bg-purple-400/30 dark:bg-purple-500/20 rounded-full blur-3xl" />
+        <div className="relative min-h-screen flex items-center bg-cover bg-center overflow-hidden"
+             style={{backgroundImage: "url('/images/mh-wilderness-bg.jpg')"}}>
+            {/* พื้นหลังโทนสีน้ำตาลมินิมอล */}
+            <div className="absolute inset-0 bg-gradient-to-br from-stone-900/90 via-amber-900/80 to-stone-800/90 dark:from-stone-950/90 dark:via-amber-950/80 dark:to-stone-900/90">
+                <div className="absolute inset-0 backdrop-blur-md" />
+                
+                {/* เอฟเฟกต์แสงนุ่มนวลแบบมินิมอล */}
+                <div className="absolute top-20 left-20 w-80 h-80 bg-amber-700/10 rounded-full blur-3xl" />
+                <div className="absolute bottom-20 right-20 w-96 h-96 bg-stone-600/10 rounded-full blur-3xl" />
+                <div className="absolute bottom-40 left-40 w-64 h-64 bg-amber-500/5 rounded-full blur-3xl" />
+                
+                {/* เอฟเฟกต์เท็กซ์เจอร์แบบน้อยๆ */}
+                <div className="absolute inset-0 opacity-10" 
+                     style={{backgroundImage: "url('/images/subtle-texture.png')", backgroundRepeat: 'repeat'}} />
+            </div>
+
+            {/* เส้นกริดแนวนอนแบบบางเบา */}
+            <div className="absolute bottom-0 left-0 right-0 h-[40vh] z-0">
+                <div className="absolute inset-0 bg-[repeating-linear-gradient(0deg,transparent,transparent_60px,rgba(217,119,6,0.05)_60px,rgba(217,119,6,0.05)_61px)]" />
             </div>
 
             {/* เนื้อหาหลัก */}
-            <div className="relative container mx-auto px-6 py-16 md:-mt-[150px]">
+            <div className="relative container mx-auto px-6 py-16 md:-mt-[150px] z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -86,11 +97,11 @@ const Hero = () => {
                         transition={{ duration: 0.8 }}
                         className="relative text-left p-8 rounded-2xl group"
                     >
-                        {/* Gradient border effect */}
-                        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 blur-2xl group-hover:blur-xl transition-all duration-500" />
+                        {/* Subtle gradient border effect แบบมินิมอล */}
+                        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-amber-600/10 to-stone-600/10 blur-xl group-hover:blur-xl transition-all duration-500" />
 
-                        {/* Glass background */}
-                        <div className="absolute inset-0 rounded-2xl backdrop-blur-md bg-white/30 dark:bg-gray-900/30 border border-white/30 dark:border-gray-700/30" />
+                        {/* Glass background แบบมินิมอล */}
+                        <div className="absolute inset-0 rounded-2xl backdrop-blur-md bg-stone-900/20 dark:bg-stone-900/30 border border-amber-700/10 dark:border-amber-800/10 shadow-[0_0_30px_rgba(217,119,6,0.05)]" />
 
                         {/* เนื้อหาภายใน */}
                         <div className="relative">
@@ -99,14 +110,14 @@ const Hero = () => {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.2, duration: 0.8 }}
                             >
-                                <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-4 [text-wrap:balance] tracking-tight">
+                                <h1 className="text-4xl lg:text-6xl font-bold text-amber-50 mb-4 [text-wrap:balance] tracking-tight">
                                     ยินดีต้อนรับ สู่{' '}
                                     <span className="inline-block">
-                                        <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 dark:from-blue-400 dark:via-purple-400 dark:to-blue-400 animate-gradient">
-                                            Docs Web
+                                        <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-500 dark:from-amber-200 dark:via-yellow-300 dark:to-amber-400">
+                                            Monster Hunter Guide - TH
                                         </span>
                                         <motion.div
-                                            className="h-1 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 dark:from-blue-400 dark:via-purple-400 dark:to-blue-400 rounded-full mt-1"
+                                            className="h-0.5 bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-500 dark:from-amber-200 dark:via-yellow-300 dark:to-amber-400 rounded-full mt-1"
                                             initial={{ scaleX: 0 }}
                                             animate={{ scaleX: 1 }}
                                             transition={{
@@ -119,13 +130,13 @@ const Hero = () => {
                             </motion.div>
 
                             <motion.p
-                                className="text-xl text-gray-700 dark:text-gray-300 mb-8 [text-wrap:balance] leading-relaxed"
+                                className="text-xl text-amber-100 dark:text-amber-100 mb-8 [text-wrap:balance] leading-relaxed"
                                 initial={{ opacity: 0, y: 10 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.4, duration: 0.8 }}
                             >
-                                คำแนะนำที่ครอบคลุมของคุณในการสร้างซอฟต์แวร์ที่น่าทึ่ง
-                                เรียบง่าย ทรงพลัง และจัดทำเป็นเอกสารอย่างสวยงาม
+                                คู่มือล่าที่ครอบคลุมเพื่อช่วยให้คุณกลายเป็นนักล่าที่แข็งแกร่ง
+                                เรียนรู้เกี่ยวกับมอนสเตอร์ อาวุธ และเทคนิคการล่าต่างๆ
                             </motion.p>
 
                             <motion.div
@@ -140,14 +151,42 @@ const Hero = () => {
                                 >
                                     <Link
                                         to="/docs"
-                                        className="relative group px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-medium transition-all duration-300"
+                                        className="relative group px-8 py-3 bg-gradient-to-r from-amber-700 to-amber-600 text-amber-50 rounded-lg font-medium transition-all duration-300 border border-amber-600/30"
                                     >
-                                        <span className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 blur-lg opacity-0 group-hover:opacity-50 transition-opacity" />
+                                        <span className="absolute inset-0 rounded-lg bg-gradient-to-r from-amber-600 to-amber-700 blur opacity-0 group-hover:opacity-30 transition-opacity" />
                                         <span className="relative">
-                                            ลองใช้งานตอนนี้
+                                            เริ่มการล่า
                                         </span>
                                     </Link>
                                 </motion.div>
+                                <motion.div
+                                    whileHover={{ scale: 1.05, translateY: -2 }}
+                                    whileTap={{ scale: 0.95 }}
+                                >
+                                    <Link
+                                        to="/docs/สกิล"
+                                        className="relative group px-8 py-3 bg-transparent text-amber-200 border border-amber-700/30 rounded-lg font-medium hover:bg-amber-800/10 transition-all duration-300"
+                                    >
+                                        <span className="relative">
+                                            ค้นหาสกิล
+                                        </span>
+                                    </Link>
+                                </motion.div>
+                            </motion.div>
+
+                            {/* Badge แบบมินิมอล */}
+                            <motion.div
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.8, duration: 0.8 }}
+                                className="mt-8 inline-block"
+                            >
+                                <div className="px-4 py-2 bg-amber-900/20 border border-amber-700/10 rounded-md text-amber-200 text-sm font-medium backdrop-blur-sm flex items-center">
+                                    <svg className="w-5 h-5 mr-2 text-amber-400/80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M13.5 2L13.5 7L21.5 7M13.5 2L8.5 7M13.5 2L19 7.5L22 10.5L19 13.5L14 18.5L9 22L4 18.5L2 13.5L4 8.5L9 4L13.5 2Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                                    </svg>
+                                    อัพเดทล่าสุด: Monster Hunter Wilds
+                                </div>
                             </motion.div>
                         </div>
                     </motion.div>
@@ -164,20 +203,26 @@ const Hero = () => {
                             transition={{ delay: 0.3, duration: 0.8 }}
                             className="relative"
                         >
-                            {/* เอฟเฟกต์เรืองแสง */}
-                            <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl blur-xl opacity-20 group-hover:opacity-30 transition-opacity" />
+                            {/* เอฟเฟกต์เรืองแสงแบบละเอียด */}
+                            <div className="absolute -inset-0.5 bg-gradient-to-r from-amber-700/20 to-stone-700/20 rounded-lg blur opacity-20 group-hover:opacity-30 transition-opacity" />
 
-                            {/* เนื้อหาหลัก 2 */}
-                            <div className="relative backdrop-blur-sm bg-white/5 dark:bg-gray-900/5 p-3 rounded-2xl border border-white/30 dark:border-gray-700/30 shadow-2xl">
+                            {/* เนื้อหาหลัก 2 - โค้ด */}
+                            <div className="relative backdrop-blur-xl bg-stone-900/40 dark:bg-stone-900/60 p-4 rounded-lg border border-amber-700/20 dark:border-amber-800/20 shadow-md">
                                 {/* องค์ประกอบลอยตัว 3 มิติ */}
                                 <div
-                                    className="absolute -left-4 -top-4 w-8 h-8 bg-blue-500/10 rounded-lg transform rotate-12 translate-z-12"
-                                    style={{ transform: 'translateZ(40px)' }}
+                                    className="absolute -left-4 -top-4 w-8 h-8 bg-amber-700/20 rounded-md transform rotate-12"
+                                    style={{ transform: 'translateZ(40px) rotate(12deg)' }}
                                 />
                                 <div
-                                    className="absolute -right-6 -bottom-6 w-12 h-12 bg-purple-500/10 rounded-lg transform -rotate-12 translate-z-8"
-                                    style={{ transform: 'translateZ(60px)' }}
+                                    className="absolute -right-6 -bottom-6 w-12 h-12 bg-amber-600/20 rounded-md transform -rotate-12"
+                                    style={{ transform: 'translateZ(60px) rotate(-12deg)' }}
                                 />
+
+                                {/* เส้นกริดบางๆ แบบมินิมอล */}
+                                <div className="absolute inset-0 rounded-lg overflow-hidden opacity-10 pointer-events-none">
+                                    <div className="absolute inset-0 bg-[repeating-linear-gradient(90deg,transparent,transparent_50px,rgba(217,119,6,0.3)_50px,rgba(217,119,6,0.3)_51px)]" />
+                                    <div className="absolute inset-0 bg-[repeating-linear-gradient(0deg,transparent,transparent_50px,rgba(217,119,6,0.3)_50px,rgba(217,119,6,0.3)_51px)]" />
+                                </div>
 
                                 {/* เนื้อหาภายในโค้ด */}
                                 <motion.div
@@ -187,6 +232,21 @@ const Hero = () => {
                                     <TypedCodeBlock />
                                 </motion.div>
                             </div>
+                        </motion.div>
+
+                        {/* Icon แบบมินิมอล */}
+                        <motion.div
+                            className="absolute -bottom-8 -right-8 w-24 h-24 transform rotate-12 opacity-60"
+                            initial={{ opacity: 0, rotate: 0 }}
+                            animate={{ opacity: 0.6, rotate: 12 }}
+                            transition={{ delay: 1.2, duration: 0.8 }}
+                        >
+                            <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="rgba(217,119,6,0.5)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                                <path d="M12 2C14.5013 4.73835 15.9228 8.29203 16 12C15.9228 15.708 14.5013 19.2616 12 22C9.49872 19.2616 8.07725 15.708 8 12C8.07725 8.29203 9.49872 4.73835 12 2Z" stroke="rgba(217,119,6,0.5)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                                <path d="M2 12H22" stroke="rgba(217,119,6,0.5)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                            <div className="absolute inset-0" style={{ filter: "drop-shadow(0 0 5px rgba(217,119,6,0.3))" }}></div>
                         </motion.div>
                     </div>
                 </div>
