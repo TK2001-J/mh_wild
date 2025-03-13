@@ -1,4 +1,5 @@
-import { FiHeart, FiExternalLink } from 'react-icons/fi';
+import { FiHeart, FiExternalLink, FiGithub } from 'react-icons/fi';
+import { FaDiscord, FaTwitter } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { NavLink } from 'react-router';
 import '../../styles/glowing-corner.css';
@@ -42,15 +43,24 @@ const Footer = () => {
                                  Special Thanks <FiHeart />
                             </h2>
                             <p className="text-gray-600 dark:text-gray-400 max-w-md">
-                                Docs Web by NekoSakuraLucia 
+                                Docs Web by NekoSakuraLucia <br />
+                                Database sourced from KenXtinct <br />
+                                
+
                             </p>
                         </motion.div>
 
                         <div className="flex flex-wrap justify-center gap-3">
-                            {['GitHub', 'Discord', 'Twitter'].map((item, i) => (
+                            {[
+                                { name: 'GitHub', url: 'https://github.com/TK2001-J', icon: <FiGithub className="w-4 h-4 mr-2" /> },
+                                { name: 'Discord', url: 'https://discord.gg/yourdiscord', icon: <FaDiscord className="w-4 h-4 mr-2" /> },
+                                { name: 'Twitter', url: 'https://twitter.com/yourtwitter', icon: <FaTwitter className="w-4 h-4 mr-2" /> }
+                            ].map((item, i) => (
                                 <motion.a
                                     key={i}
-                                    href="https://github.com/TK2001-J"
+                                    href={item.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     whileHover={{ scale: 1.05, y: -2 }}
                                     whileTap={{ scale: 0.95 }}
                                     className={`px-6 py-2 rounded-full border border-gray-200/50 dark:border-gray-800/50 
@@ -63,7 +73,8 @@ const Footer = () => {
                                     }
                                 >
                                     <div className="light-effect" />
-                                    {item}
+                                    {item.icon}
+                                    {item.name}
                                     <FiExternalLink className="w-4 h-4" />
                                 </motion.a>
                             ))}
@@ -82,13 +93,13 @@ const Footer = () => {
                             © {currentYear} สร้างโดย{' '}
                            
                             <NavLink
-                                to="https://github.com/TK2001-J"
+                                to="/"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-blue-600 dark:text-blue-400 hover:underline"
                             >
                                 {' '}
-                                TK2001-J
+                                XSEIGHT
                             </NavLink>
                         </p>
                     </motion.div>

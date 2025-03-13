@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const Notification = ({ message, isSuccess = true, onClose, isVisible }) => {
   return (
-    <AnimatePresence>
+    <AnimatePresence mode="sync">
       {isVisible && (
         <motion.div
           initial={{ opacity: 0, x: 100, y: 0 }}

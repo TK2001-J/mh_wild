@@ -91,7 +91,7 @@ const Sidebar = () => {
       </div>
 
       {/* ปรับแต่ง Mobile Sidebar */}
-      <AnimatePresence>
+      <AnimatePresence mode="sync">
         {isOpen && (
           <>
             {/* Backdrop Overlay */}

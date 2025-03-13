@@ -68,7 +68,7 @@ const Hero = () => {
 
     return (
         <div className="relative min-h-screen flex items-center bg-cover bg-center overflow-hidden"
-             style={{backgroundImage: "url('https://cdn.monsterhunterworld.com/sblobr/mhwi/images/game_kv.jpg')"}}>
+             style={{backgroundImage: 'url(\'https://cdn.monsterhunterworld.com/sblobr/mhwi/images/game_kv.jpg\')'}}>
             {/* พื้นหลังโทนสีน้ำตาลมินิมอล */}
             <div className="absolute inset-0 bg-gradient-to-br from-stone-900/90 via-amber-900/80 to-stone-800/90 dark:from-stone-950/90 dark:via-amber-950/80 dark:to-stone-900/90">
                 <div className="absolute inset-0 backdrop-blur-md" />
@@ -111,10 +111,10 @@ const Hero = () => {
                                 transition={{ delay: 0.2, duration: 0.8 }}
                             >
                                 <h1 className="text-4xl lg:text-6xl font-bold text-amber-50 mb-4 [text-wrap:balance] tracking-tight">
-                                    ยินดีต้อนรับครับท่าน CEO วราวุฒิ{' '}
+                                    ยินดีต้อนรับเข้าสู่{' '}
                                     <span className="inline-block">
                                         <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-500 dark:from-amber-200 dark:via-yellow-300 dark:to-amber-400">
-                                            Monster Hunter Guide - TH
+                                            MH Wilds Guide - TH
                                         </span>
                                         <motion.div
                                             className="h-0.5 bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-500 dark:from-amber-200 dark:via-yellow-300 dark:to-amber-400 rounded-full mt-1"
@@ -150,7 +150,7 @@ const Hero = () => {
                                     whileTap={{ scale: 0.95 }}
                                 >
                                     <Link
-                                        to="/docs"
+                                        to="/docs/mh-wild/index"
                                         className="relative group px-8 py-3 bg-gradient-to-r from-amber-800 to-amber-700 text-amber-50 rounded-lg font-medium transition-all duration-300 border border-amber-600/30"
                                     >
                                         <span className="absolute inset-0 rounded-lg bg-gradient-to-r from-amber-600 to-amber-700 blur opacity-0 group-hover:opacity-30 transition-opacity" />
@@ -164,7 +164,7 @@ const Hero = () => {
                                     whileTap={{ scale: 0.95 }}
                                 >
                                     <Link
-                                        to="/docs/CSS/สกิล"
+                                        to="/docs/mh-wild/Skills"
                                         className="relative group px-8 py-3 bg-transparent text-amber-200 border border-amber-700/30 rounded-lg font-medium hover:bg-amber-800/10 transition-all duration-300"
                                     >
                                         <span className="relative">
@@ -244,11 +244,11 @@ const Hero = () => {
                             {/* ไม่ใช้ SVG แบบเดิม แต่ใช้รูปจาก URL */}
                             <div className="w-full h-full relative">
                                 <img 
-                                    src="https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/mhw-guild-crest-wiki-guide.png" 
+                                    src='../../../public/emblem.png' 
                                     alt="Monster Hunter Icon" 
                                     className="w-full h-full object-contain opacity-70"
                                 />
-                                <div className="absolute inset-0" style={{ filter: "drop-shadow(0 0 5px rgba(217,119,6,0.3))" }}></div>
+                                <div className="absolute inset-0" style={{ filter: 'drop-shadow(0 0 5px rgba(217,119,6,0.3))' }}></div>
                             </div>
                         </motion.div>
                     </div>
